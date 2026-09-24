@@ -1,0 +1,50 @@
+{
+  "settings": {
+    "favourite_team": {
+      "label": "Favourite F1 team",
+      "description": "Choose your favourite F1 team from the 2026 lineup.",
+      "options": {
+        "alpine": "Alpine",
+        "aston_martin": "Aston Martin",
+        "audi": "Audi",
+        "cadillac": "Cadillac",
+        "ferrari": "Ferrari",
+        "haas": "Haas",
+        "mclaren": "McLaren",
+        "mercedes": "Mercedes",
+        "racing_bulls": "Racing Bulls",
+        "red_bull": "Red Bull",
+        "Williams": "Williams"
+      }
+    },
+    "favourite_driver": {
+      "label": "Favourite F1 driver",
+      "description": "Choose your favourite F1 driver from the 2026 grid.",
+      "options": {
+        "alexander_albon": "Alex Albon",
+        "fernando_alonso": "Fernando Alonso",
+        "kimi_antonelli": "Kimi Antonelli",
+        "oliver_bearman": "Ollie Bearman",
+        "gabriel_bortoleto": "Gabriel Bortoleto",
+        "valtteri_bottas": "Valtteri Bottas",
+        "franco_colapinto": "Franco Colapinto",
+        "pierre_gasly": "Pierre Gasly",
+        "isack_hadjar": "Isack Hadjar",
+        "lewis_hamilton": "Lewis Hamilton",
+        "nico_hulkenberg": "Nico Hulkenberg",
+        "liam_lawson": "Liam Lawson",
+        "charles_leclerc": "Charles Leclerc",
+        "arvid_lindblad": "Arvid Lindblad",
+        "lando_norris": "Lando Norris",
+        "esteban_ocon": "Esteban Ocon",
+        "sergio_perez": "Sergio Perez",
+        "oscar_piastri": "Oscar Piastri",
+        "george_russell": "George Russell",
+        "carlos_sainz": "Carlos Sainz",
+        "lance_stroll": "Lance Stroll",
+        "yuki_tsunoda": "Yuki Tsunoda",
+        "max_verstappen": "Max Verstappen"
+      }
+    }
+  }
+}

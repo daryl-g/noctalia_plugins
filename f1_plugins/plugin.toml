@@ -1,0 +1,69 @@
+id           = "darylg/f1-plugins"
+name         = "F1 Info & Results"
+version      = "1.0.0"
+plugin_api   = 32
+author       = "darylg"
+license      = "MIT"
+deprecated   = false
+icon         = "puzzle"
+description  = "Display F1 team and driver information, and latest race results."
+tags         = ["panel", "desktop", "fun", "hyprland", "arch"]
+
+[[setting]]
+key             = "favourite_team"
+type            = "select"
+label_key       = "settings.favourite_team.label"
+description_key = "settings.favourite_team.description"
+default         = "audi"
+options = [
+    { value = "alpine", label_key = "settings.favourite_team.options.alpine" },
+    { value = "aston_martin", label_key = "settings.favourite_team.options.aston_martin" },
+    { value = "audi", label_key = "settings.favourite_team.options.audi" },
+    { value = "cadillac", label_key = "settings.favourite_team.options.cadillac" },
+    { value = "ferrari", label_key = "settings.favourite_team.options.ferrari" },
+    { value = "haas", label_key = "settings.favourite_team.options.haas" },
+    { value = "mclaren", label_key = "settings.favourite_team.options.mclaren" },
+    { value = "mercedes", label_key = "settings.favourite_team.options.mercedes" },
+    { value = "racing_bulls", label_key = "settings.favourite_team.options.racing_bulls" },
+    { value = "red_bull", label_key = "settings.favourite_team.options.red_bull" },
+    { value = "williams", label_key = "settings.favourite_team.options.williams" },
+]
+
+[[setting]]
+key             = "favourite_driver"
+type            = "select"
+label_key       = "settings.favourite_driver.label"
+description_key = "settings.favourite_driver.description"
+default         = "nico_hulkenberg"
+options = [
+    { value = "alexander_albon", label_key = "settings.favourite_driver.options.alexander_albon" },
+    { value = "fernando_alonso", label_key = "settings.favourite_driver.options.fernando_alonso" },
+    { value = "kimi_antonelli", label_key = "settings.favourite_driver.options.kimi_antonelli" },
+    { value = "oliver_bearman", label_key = "settings.favourite_driver.options.oliver_bearman" },
+    { value = "gabriel_bortoleto", label_key = "settings.favourite_driver.options.gabriel_bortoleto" },
+    { value = "valtteri_bottas", label_key = "settings.favourite_driver.options.valtteri_bottas" },
+    { value = "franco_colapinto", label_key = "settings.favourite_driver.options.franco_colapinto" },
+    { value = "pierre_gasly", label_key = "settings.favourite_driver.options.pierre_gasly" },
+    { value = "isack_hadjar", label_key = "settings.favourite_driver.options.isack_hadjar" },
+    { value = "lewis_hamilton", label_key = "settings.favourite_driver.options.lewis_hamilton" },
+    { value = "nico_hulkenberg", label_key = "settings.favourite_driver.options.nico_hulkenberg" },
+    { value = "liam_lawson", label_key = "settings.favourite_driver.options.liam_lawson" },
+    { value = "charles_leclerc", label_key = "settings.favourite_driver.options.charles_leclerc" },
+    { value = "arvid_lindblad", label_key = "settings.favourite_driver.options.arvid_lindblad" },
+    { value = "lando_norris", label_key = "settings.favourite_driver.options.lando_norris" },
+    { value = "esteban_ocon", label_key = "settings.favourite_driver.options.esteban_ocon" },
+    { value = "sergio_perez", label_key = "settings.favourite_driver.options.sergio_perez" },
+    { value = "oscar_piastri", label_key = "settings.favourite_driver.options.oscar_piastri" },
+    { value = "george_russell", label_key = "settings.favourite_driver.options.george_russell" },
+    { value = "carlos_sainz", label_key = "settings.favourite_driver.options.carlos_sainz" },
+    { value = "lance_stroll", label_key = "settings.favourite_driver.options.lance_stroll" },
+    { value = "yuki_tsunoda", label_key = "settings.favourite_driver.options.yuki_tsunoda" },
+    { value = "max_verstappen", label_key = "settings.favourite_driver.options.max_verstappen" },
+]
+
+[[desktop_widget]]
+id = "team"
+
+[[service]]
+id    = "service"
+entry = "service.luau"
