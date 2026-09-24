@@ -165,4 +165,115 @@ export type ConstructorRaceResult = {
     round: number
 }
 
+--- Constructor identity
+export type ConstructorIdentity = {
+    full_name: string,
+    id: string,
+    name: string,
+    color: ConstructorColour,
+    country: Country
+}
+
+--- Short information about a driver
+export type DriverShort = {
+    abbreviation: string,
+    full_name: string,
+    id: string,
+    is_active: boolean,
+    name: string,
+    nationality_country_id: string,
+    permanent_number: string?,
+    total_championship_points: number,
+    total_championship_wins: number,
+    total_podiums: number,
+    total_points: number,
+    total_pole_positions: number,
+    total_race_wins: number,
+    constructor: ConstructorIdentity,
+    country: Country
+}
+
+--- Info about a driver's past constructor
+--- (Basically it's ConstructorIdentity + year)
+export type DriverConstructor = {
+    full_name: string,
+    id: string,
+    name: string,
+    year: string,
+    color: ConstructorColour,
+    country: Country
+}
+
+--- Full information about a driver
+export type DriverDetails = {
+    abbreviation: string,
+    best_championship_position: number?,
+    best_race_result: number?,
+    best_sprint_race_result: number?,
+    best_starting_grid_position: number?,
+    date_of_birth: string,
+    date_of_death: string,
+    dnf_rate: number?,
+    full_name: string,
+    gender: string,
+    id: string,
+    is_active: boolean,
+    name: string,
+    nationality_country_id: string,
+    permanent_number: string?,
+    place_of_birth: string,
+    podiums_rate: number?,
+    poles_rate: number?,
+    total_championship_points: number,
+    total_championship_wins: number,
+    total_driver_of_the_day: number,
+    total_fastest_laps: number,
+    total_grand_slams: number,
+    total_podiums: number,
+    total_points: number,
+    total_pole_positions: number,
+    total_race_entries: number,
+    total_race_laps: number,
+    total_race_starts: number,
+    total_race_wins: number,
+    total_sprint_race_starts: number,
+    total_sprint_race_wins: number,
+    wins_rate: number?,
+    constructor: ConstructorIdentity,
+    constructors: { DriverConstructor },
+    country: Country,
+    country_of_birth: Country
+}
+
+--- Driver's season record
+export type DriverSeason = {
+    best_race_result: number?,
+    best_starting_grid_position: number?,
+    championship_points: number?,
+    championship_position: number?,
+    championship_position_text: number?,
+    championship_won: boolean,
+    constructors: { DriverConstructor },
+    dnf_rate: number?,
+    podiums_rate: number?,
+    points: number,
+    points_per_race: number?,
+    poles_rate: number?,
+    total_dnf: number,
+    total_driver_of_the_day: number,
+    total_fastest_laps: number,
+    total_grand_slams: number,
+    total_podiums: number,
+    total_pole_positions: number,
+    total_race_entries: number,
+    total_race_laps: number,
+    total_race_starts: number,
+    total_race_wins: number,
+    total_season_races: number,
+    total_sprint_race_starts: number,
+    total_sprint_race_wins: number,
+    wins_rate: number?,
+    year: number
+}
+
 return {}

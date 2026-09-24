@@ -16,39 +16,47 @@ local fetchJson = fetch.httpJson
 -- Response types
 local types = require("../utils/types.luau")
 
---- Fetch all constructors for a season
-function Gridvex.fetchAllConstructors() : ()
+--- Fetch details about all constructors for a season or a single constructor
+function Gridvex.fetchConstructor(id: string?) : ()
+    local url: string
+    -- Input check
+    if id == nil or id == "" then
+        url = GRIDVEX_URL .. "/constructors?season=" .. os.date("%Y")
+    else
+        url = GRIDVEX_URL .. "/constructors/" .. id
+    end
+
+    -- Fetch data and write to json file
     fetchJson(
-        GRIDVEX_URL .. "/constructors?season=" .. os.date("%Y"),
+        url,
         function(data: any)
             if data ~= nil then
-                local constructors: { types.ConstructorShort } = data
+                local constructors: { types.ConstructorShort } | types.ConstructorDetails = data
                 local ok: boolean = writeJson("constructors.json", constructors)
                 -- Validate write process
                 if ok then
-                    noctalia.log("All constructors data successfully written into constructors.json.")
+                    noctalia.log("Constructors data successfully written into constructors.json.")
                 end
         end
     end)
 end
 
---- Fetch constructor details
-function Gridvex.fetchConstructor(id: string) : ()
+--- Fetch constructor results for a season
+function Gridvex.fetchConstructorResults(id: string): ()
+    -- Fetch data and write to json file
     fetchJson(
-        GRIDVEX_URL .. "/constructors/" .. id,
+        GRIDVEX_URL .. "/constructors/" .. id .. "/results",
         function(data: any)
             if data ~= nil then
-                local constructor: types.ConstructorDetails = data
-                local ok: boolean = writeJson("constructor.json", constructor)
+                local results: { types.ConstructorRaceResult } = data
+                local ok: boolean = writeJson("constructors_result.json", results)
                 -- Validate write process
                 if ok then
-                    noctalia.log("Constructor data successfully written into constructor.json.")
+                    noctalia.log("Constructors race results data successfully written into constructors.json.")
                 end
         end
     end)
-
---- Fetch constructor results for a season
-function Gridvex.fetchConstructorResults(id: string, season: number): { types.ConstructorRaceResult }
+end
 
 --- Fetch all drivers for a season
 function Gridvex.fetchAllDrivers(season: number): {}
