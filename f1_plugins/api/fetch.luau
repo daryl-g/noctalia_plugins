@@ -1,6 +1,6 @@
---!strict
-
 -- Functions to fetch data and images from OpenF1 and Gridvex
+
+local Fetch = {}
 
 -- Helper functions
 local helpers = require("../utils/helpers.luau")
@@ -11,16 +11,12 @@ local getCacheFilePath = helpers.getCacheFilePath
 local MEDIA_URL = "https://media.formula1.com/image/upload/q_auto/v1740000001/"
 --- F1 image type
 local MEDIA_TYPE = ".webp"
---- OpenF1 API URL base
-local OPENF1_URL = "https://api.openf1.org/v1/"
---- Gridvex API URL base
-local GRIDVEX_URL = "https://api.gridvex.app/api"
 --- User agent to include in headers
 local USER_AGENT = "darylg/f1-plugins/1.0.0"
 
 --- Generic function to fetch data
 -- Copied from world-radio plugin (https://github.com/noctalia-dev/community-plugins/blob/caeccf1f48f52565924d77b3afcbf6a8cec73b61/world-radio/panel.luau#L332)
-local function httpJson(url: string, resp) : ()
+function Fetch.httpJson(url: string, resp: any) : ()
     noctalia.http({
         url = url,
         headers = {
@@ -51,7 +47,7 @@ local function httpJson(url: string, resp) : ()
 end
 
 --- Download images from F1 official website
-local function downloadImage(id: string) : boolean
+function Fetch.downloadImage(id: string) : boolean
     -- Get cache file directory
     local path: string? = getCacheFilePath()
     if path == nil or path == "" then
@@ -72,9 +68,9 @@ local function downloadImage(id: string) : boolean
         path,
         -- Validate if the image has been downloaded
         function(success: boolean)
-            if success == true and noctalia.fileExists(path .. file_name) == true then
+            if success and noctalia.fileExists(path .. file_name) then
                 return true
-            elseif success == true and noctalia.fileExists(path .. file_name) ~= true then
+            elseif success and not noctalia.fileExists(path .. file_name) then
                 return false
             else
                 return false
@@ -84,3 +80,5 @@ local function downloadImage(id: string) : boolean
 
     return ok
 end
+
+return Fetch
